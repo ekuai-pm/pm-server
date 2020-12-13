@@ -1,10 +1,11 @@
-const axiosA = require("axios");
-const qs = require("qs");
+import axiosA from "axios";
+import qs from "qs";
 
-module.exports = {
+let axios = {
 	$get: axiosA.get,
 	"$post": (url, data) => {
 		return axiosA.post(url, qs.stringify(data));
 	},
 	...axiosA,
 };
+export default axios;
